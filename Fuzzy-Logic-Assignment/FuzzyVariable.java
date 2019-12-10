@@ -8,6 +8,7 @@ public class FuzzyVariable{
 	
 	public FuzzyVariable(String name){
 		this.name = name;
+		fuzzySets = new ArrayList<FuzzySet>();
 	}
 	public void addFuzzySet(String name, String type, double[] x){
 		if(type.equals("triangular"))
@@ -27,13 +28,13 @@ public class FuzzyVariable{
 			System.out.println(fuzzySet.getName());
 		}
 	}
-	/*public HashMap<String, Double> fuzzify(double x){
+	public HashMap<String, Double> fuzzify(double x){
 		HashMap<String, Double> map = new HashMap<String, Double>();
 		for(FuzzySet fuzzySet : fuzzySets){
-			map.put(fuzzySet.getName(), fuzzySet.fuzzyify(x));
+			map.put(fuzzySet.getName(), fuzzySet.fuzzify(x));
 		}
 		return map;
-	}*/
+	}
 	public double fuzzify(double x, String fuzzySetName) throws Exception{
 		for(FuzzySet set : fuzzySets){
 			if(fuzzySetName.equals(set.getName())){
